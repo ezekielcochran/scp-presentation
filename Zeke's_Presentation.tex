@@ -1,0 +1,66 @@
+\documentclass[x11names]{beamer}
+\usetheme{Ilmenau}
+\usepackage{wrapfig}
+\usepackage{nicefrac}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usecolortheme[named=SteelBlue4]{structure}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\p}{\mathcal{P}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\Ll}{\mathscr{L}}
+\newcommand{\SCP}{sequentially congruent partition}
+\newcommand{\tail}{\operatorname{Tail}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newtheorem{prop}{Proposition}
+\definecolor{shadedcell}{RGB}{71, 101, 125}
+\definecolor{shadedcelllight}{RGB}{163, 178, 190}
+\usepackage{graphicx}
+\usepackage{young}
+\usepackage{ytableau}
+\setbeamercolor{block title example}{bg=SteelBlue4}
+\usepackage{tikz}
+\usetikzlibrary{patterns,snakes}
+
+\makeatletter
+\newenvironment<>{proofs}[1][\proofname]{%
+    \par
+    \def\insertproofname{#1\@addpunct{.}}%
+    \usebeamertemplate{proof begin}#2}
+  {\usebeamertemplate{proof end}}
+\makeatother
+
+
+\title{Sequentially Congruent Partitions}
+\subtitle{REU 2022}
+\author{Ezekiel Cochran, Emma Harrell, and Samuel Saunders}
+\institute{The University of Texas at Tyler}
+\date{September 17, 2022}
+
+\begin{document}
+
+\begin{frame}{}
+    \titlepage
+    \vspace{-15mm}
+    % \begin{center}
+    \begin{tikzpicture}
+    \node at (5,0)
+        {\includegraphics[scale=0.05]{NSF.png}};
+    \node at (-4,0)
+        {\includegraphics[scale=0.18]{utt-logo.png}};
+    \end{tikzpicture}
+    % \end{center}
+\end{frame}
+
+
+
+
+
+
+\end{document}
