@@ -24,6 +24,7 @@
 \usepackage{graphicx}
 \usepackage{young}
 \usepackage{ytableau}
+\usepackage[caption = false]{subfig}
 \setbeamercolor{block title example}{bg=SteelBlue4}
 \usepackage{tikz}
 \usetikzlibrary{patterns,snakes}
@@ -41,7 +42,7 @@
 \subtitle{REU 2022}
 \author{Ezekiel Cochran, Emma Harrell, and Samuel Saunders}
 \institute{The University of Texas at Tyler}
-\date{September 17, 2022}
+\date{\today}
 
 \begin{document}
 
@@ -98,8 +99,8 @@ Sometimes, we represent a partition $\lambda$ as $\lambda = \langle 1^{f_1}, 2^{
     \begin{columns}
     \column{0.5\textwidth}
         \centering
-        \onslide<3,4,5>{ \begin{Young}
-    & & & & & & \cr
+      \onslide<3,4,5>{ \begin{Young}
+ & & & & & & \cr
 & & & & \cr
 & & & & \cr
 & & & \cr
@@ -107,8 +108,8 @@ Sometimes, we represent a partition $\lambda$ as $\lambda = \langle 1^{f_1}, 2^{
 \end{Young}}
     \column{0.5\textwidth}
         \centering
-        \onslide<5>{ \begin{Young}
-    & & & &  \cr
+      \onslide<5>{ \begin{Young}
+ & & & &  \cr
 & & &  \cr
 & & &  \cr
 & & & \cr
@@ -121,7 +122,7 @@ Sometimes, we represent a partition $\lambda$ as $\lambda = \langle 1^{f_1}, 2^{
 \end{frame}
 
 \begin{frame}{Sequentially Congruent Partitions}
-    A partition $\lambda=(\lambda_1,\lambda_2,...,\lambda_r)$ is \emph{sequentially congruent} if \begin{enumerate}
+  A partition $\lambda=(\lambda_1,\lambda_2,...,\lambda_r)$ is \emph{sequentially congruent} if \begin{enumerate}
     \item $\lambda_i \equiv  \lambda_{i + 1} \mod i$ for all $1 \leq i < r$
     \item $\lambda_r \equiv 0 \mod r$
 \end{enumerate}
@@ -129,10 +130,10 @@ Sometimes, we represent a partition $\lambda$ as $\lambda = \langle 1^{f_1}, 2^{
     \begin{example}
     $(21, 14, 14, 8)$ is sequentially congruent since 
     \begin{align*}
-        &4\mid8\\
-        &3\mid (14-8)\\
-        &2\mid (14-14)\\
-        \shortintertext{and}&1\mid (21-14) 
+      &4\mid8\\
+      &3\mid (14-8)\\
+      &2\mid (14-14)\\
+      \shortintertext{and}&1\mid (21-14) 
     \end{align*}
     \end{example}
     
@@ -161,13 +162,13 @@ Sometimes, we represent a partition $\lambda$ as $\lambda = \langle 1^{f_1}, 2^{
 
 \begin{frame}{Previous Work}
 \begin{itemize}
-        \item In 2020, Schneider, Sellers, and Wagner showed that sequentially congruent partitions of size $n$ are in bijection with partitions whose parts are squares of size $n$ so that 
-        \vspace{3mm}
-        \pause
-        \ $$\sum_{n = 1}^{\infty} p(\s, n)q^n=\sum_{n = 1}^{\infty} p_{\square}(n)q^n = \prod_{n = 1}^{\infty} \frac{1}{1-q^{n^2}}.$$
-        where $p_\square(n)$ denotes the number of partitions whose parts are perfect squares.
-        \end{itemize}
-        
+      \item In 2020, Schneider, Sellers, and Wagner showed that sequentially congruent partitions of size $n$ are in bijection with partitions whose parts are squares of size $n$ so that 
+      \vspace{3mm}
+      \pause
+      \ $$\sum_{n = 1}^{\infty} p(\s, n)q^n=\sum_{n = 1}^{\infty} p_{\square}(n)q^n = \prod_{n = 1}^{\infty} \frac{1}{1-q^{n^2}}.$$
+      where $p_\square(n)$ denotes the number of partitions whose parts are perfect squares.
+      \end{itemize}
+      
 \end{frame}
 
 \begin{frame}{Schneider--Schneider Bijections: $\pi$}
@@ -245,7 +246,7 @@ The conjugate of $\lambda=(\lambda_1,\lambda_2, \dots, \lambda_r)$ is given by $
     The $\star$ operation represents left-justified partwise addition 
 \end{frame}
 
-\begin{frame}{C-Notation} %This is the frame that VSCode does not like
+\begin{frame}{C-Notation}
     \begin{theorem} A partition is sequentially congruent if and only if it can be written as \[\lambda = c_1(1) \star c_2(2,2) \star c_3(3,3,3) \star \dots \star c_r (r, \dots,r) \] where $c_1$ through $c_r$ are non-negative integers.
     \end{theorem}
     \pause
@@ -257,7 +258,7 @@ The conjugate of $\lambda=(\lambda_1,\lambda_2, \dots, \lambda_r)$ is given by $
 
 \begin{frame}{C-Notation and Young Diagrams}
 
-\ytableausetup{boxsize = 1em, centertableaux}
+\ytableausetup{boxsize=1em}
 \begin{ytableau}
 \none[\cdots] & & & & & & & \none[\cdots] & & & & & &\none[\cdots] & & & & & \none[\cdots] & & & & \none[\cdots] & & & \none[\cdots] & \\
 \none & & & & & & & \none & & & & & & \none & & & & & \none & & & & \none & & & \none\\
@@ -296,11 +297,11 @@ The conjugate of $\lambda=(\lambda_1,\lambda_2, \dots, \lambda_r)$ is given by $
 \ytableausetup
 {mathmode, boxsize=1em, centertableaux}
 \begin{ytableau}
-    *(white)  & & & & &  &  & & & & &  &  & & & \\
-    *(white)  & & & & &  &  & & & & &  & \\
-    *(white)  & & & & &  &  & & & & \\
-    & & & & \\
-    & & & &
+ *(white)  & & & & &  &  & & & & &  &  & & & \\
+ *(white)  & & & & &  &  & & & & &  & \\
+ *(white)  & & & & &  &  & & & & \\
+ & & & & \\
+ & & & &
 \end{ytableau}
 }
 
@@ -309,11 +310,11 @@ The conjugate of $\lambda=(\lambda_1,\lambda_2, \dots, \lambda_r)$ is given by $
 \ytableausetup
 {mathmode, boxsize=1em, centertableaux}
 \begin{ytableau}
-    *(shadedcelllight)  & *(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell) & *(shadedcell)&*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell) &*(shadedcelllight) & *(shadedcell)&*(shadedcelllight) \\
-    *(shadedcelllight)  &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell) & *(shadedcell)&*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell)\\
-    *(shadedcelllight)  &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell) & *(shadedcell)&*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) \\
-    *(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) \\
-    *(shadedcelllight) &*(shadedcelllight) & *(shadedcelllight)&*(shadedcelllight) &*(shadedcelllight)
+ *(shadedcelllight)  & *(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell) & *(shadedcell)&*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell) &*(shadedcelllight) & *(shadedcell)&*(shadedcelllight) \\
+ *(shadedcelllight)  &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell) & *(shadedcell)&*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell)\\
+ *(shadedcelllight)  &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell) & *(shadedcell)&*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) \\
+ *(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) \\
+ *(shadedcelllight) &*(shadedcelllight) & *(shadedcelllight)&*(shadedcelllight) &*(shadedcelllight)
 \end{ytableau}
 
 }
@@ -352,16 +353,16 @@ The conjugate of $\lambda=(\lambda_1,\lambda_2, \dots, \lambda_r)$ is given by $
     Thus the generating function for sequentially congruent partitions is $$\sum_{n = 1}^{\infty} p(\s,n)q^n = \prod_{n = 1}^{\infty} \frac{1}{1-q^{n^2}}.$$
 \end{frame}
 
-% Added this whitespace to keep line numbers consistant (There was commented code here)
+% \begin{frame}{Specializations}
+    
+% \end{frame}
 
 
-
-
-
-
-
-
-
+% \begin{frame}{Generating Function}
+%     The generating function for all partitions of size $n$ is $$\sum_{n = 1}^{\infty} p(n)q^n = \prod_{n = 1}^{\infty} \frac{1}{1-q^n}.$$
+%     \pause
+%     Because of our bijections, this is also a generating function for \SCP s with largest part $n$.
+% \end{frame}
 
 \begin{frame}{$\pi$ and $\sigma$}
     % While most partition bijections map size to size, some are maps between other characteristics. In their 2019 paper, Schneider--Schneider defined two partition bijections between the set of sequentially congruent partitions with largest part $n$, $\s_{lg=n}$, and the set of partitions of size $n$, $\p_n$. 
@@ -380,6 +381,517 @@ The conjugate of $\lambda=(\lambda_1,\lambda_2, \dots, \lambda_r)$ is given by $
     \vspace{3mm}
     
     % While these bijections, $\pi$ and $\sigma$, were somewhat complicated, using c-notation, we are able to describe the same bijections in a much simpler way. 
+\end{frame}
+
+
+\begin{frame}{$\pi$}
+    Recall that $\pi:\p_n\to\s_{lg=n}$ was defined as $\pi(\lambda_i)=i\lambda_i+\sum_{j=i+1}^r\lambda_j$. 
+    
+    \pause
+    \vspace{3mm}
+    
+    We proved that $\pi$ can also be defined as \[\pi((\lambda_1,\lambda_2,\dots,\lambda_r))=[c_1,c_2,\dots,c_r]\] where $c_i = \lambda_i - \lambda_{i + 1}$ for all $1 \leq i < r$, and $c_r = \lambda_r$.
+
+\end{frame}    
+
+
+\begin{frame}{$\sigma$}
+    % \vspace{3mm}
+    Similarly, $\sigma: \s_{lg=n}\to \p_n$, earlier defined as $\sigma(\phi)=\langle1^{\phi_1-\phi_2},2^{(\phi_2-\phi_3)/2},3^{(\phi_3-\phi_4)/3},\dots, r^{\phi_r/r} \rangle$\pause, can be defined as \[\sigma([c_1,c_2,\dots,c_r])=\langle 1^{c_1}, 2^{c_2}, \cdots, r^{c_r} \rangle.\]\
+\end{frame}
+
+
+
+\begin{frame}{Compositions}
+    The c-notation versions of $\pi$ and $\sigma$ make it immediately apparent that the conjugate of any partition is $$\left<1^{\lambda_1-\lambda_2}, 2^{\lambda_2-\lambda_3}, \dots,(r-1)^{\lambda_{r-1}-\lambda_r}, r^{\lambda_r}\right>.$$
+    \pause
+    They also helped us to think about the open question Schneider-Schneider posed.\pause \ In c-notation: $$\pi(\sigma([c_1, \dots, c_r])) = [\underbrace{0, \dots, 0, 1}_{c_r}, \underbrace{0, \dots, 0, 1}_{c_{r-1}}, \dots, \underbrace{0, \dots, 0, 1}_{c_1}]$$
+\end{frame}
+
+\begin{frame}{Compositions}
+    In standard frequency notation, $\pi(\sigma((\lambda_1, \lambda_2, \dots, \lambda_r)))$ is \tiny $$\left< \left( \sum_{j=1}^{1} \sum_{i = j}^{r} \frac{\lambda_i - \lambda_{i + 1}}{i} \right)^{\lambda_1 - \lambda_2}, \left( \sum_{j=1}^{2} \sum_{i = j}^{r} \frac{\lambda_i - \lambda_{i + 1}}{i} \right)^{\frac{\lambda_2 - \lambda_3}{2}}, \dots, \left( \sum_{j=1}^{r} \sum_{i = j}^{r} \frac{\lambda_i - \lambda_{i + 1}}{i} \right)^{\frac{\lambda_r}{r}} \right>.$$ \normalsize
+    % Intuitively, this composition represents a "squish flip stretch" transformation, where each square in the young diagram of a \SCP is reduced to a single column, the result is conjugated, then each column is transformed back into a square.
+    \begin{itemize}
+        \pause
+        \item "Squish, flip, stretch" \\
+        \pause
+        \item Analogue for conjugacy within \SCP s
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{$\pi$}
+Size to largest part:
+\begin{figure}[H]%
+\centering
+\subfloat{{
+\begin{ytableau}
+*(shadedcelllight) & *(shadedcell) & *(shadedcelllight) & *(shadedcell) & *(shadedcelllight) & *(shadedcell) \\
+*(shadedcelllight) & *(shadedcell) & *(shadedcelllight) & *(shadedcell) \\
+*(shadedcelllight) & *(shadedcell) & *(shadedcelllight)\\
+*(shadedcelllight) & *(shadedcell) \\
+\end{ytableau}}}%
+$\xmapsto{\;\;\pi\;\;}$
+\subfloat{{
+\begin{ytableau} 
+*(shadedcelllight)&*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcell)&*(shadedcell)&*(shadedcell)&*(shadedcell)&*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcell) & *(shadedcell)&*(shadedcelllight) &*(shadedcell)\\
+~& & & & & & & & & & & &  \\
+~& & & & & & & & & &\\
+~& & & & & & & \\
+\end{ytableau}}}%
+\end{figure}
+\pause
+"Stretch":
+\begin{figure}[H]%
+\centering
+\subfloat{{
+\begin{ytableau}
+~ & *(shadedcelllight) & & *(shadedcelllight) & & *(shadedcelllight) \\
+~ & *(shadedcelllight) & & *(shadedcelllight) \\
+~ & *(shadedcelllight) &\\
+~ & *(shadedcelllight) \\
+\end{ytableau}}}%
+$\xmapsto{\;\;\pi\;\;}$
+\subfloat{
+\begin{ytableau} 
+~& & & &*(shadedcelllight)&*(shadedcelllight)&*(shadedcelllight)&*(shadedcelllight)& & &&*(shadedcelllight) & *(shadedcelllight)& &*(shadedcelllight)\\
+~& & & &*(shadedcelllight)&*(shadedcelllight)&*(shadedcelllight)&*(shadedcelllight)& & &&*(shadedcelllight) & *(shadedcelllight)\\
+~& & & &*(shadedcelllight)&*(shadedcelllight)&*(shadedcelllight)&*(shadedcelllight)& & &\\
+~& & & &*(shadedcelllight)&*(shadedcelllight)&*(shadedcelllight)&*(shadedcelllight)\\
+\end{ytableau}}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{$\sigma$}
+Largest part to size:
+\begin{figure}[H]
+\centering
+\subfloat{{
+\begin{ytableau}
+*(shadedcelllight) & *(shadedcelllight) & *(shadedcelllight) & *(shadedcell) & *(shadedcell) & *(shadedcell) & *(shadedcelllight) & *(shadedcelllight) & *(shadedcell) & *(shadedcelllight) & *(shadedcell)\\
+~ & & & & & & & \\
+~ & & & & & \\
+\end{ytableau}}}%
+\; $\xmapsto{\;\; \sigma \;\;}$
+\subfloat{{
+\begin{ytableau} 
+*(shadedcelllight) & *(shadedcelllight) & *(shadedcelllight) \\
+*(shadedcell)&*(shadedcell)&*(shadedcell)\\
+ *(shadedcelllight) & *(shadedcelllight) \\
+*(shadedcell)\\
+*(shadedcelllight)\\
+*(shadedcell)\\
+\end{ytableau}}}%
+\end{figure}
+\pause
+"Squish-flip":
+\begin{figure}[H]
+% \centering
+\subfloat{{
+\begin{ytableau}
+~ & & &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & & &*(shadedcelllight) & & *(shadedcelllight)\\
+~ & & &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & & \\
+~ & & &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) \\
+\end{ytableau}}}%
+$\rightarrow{}$ 
+\subfloat{{
+\begin{ytableau} 
+~&*(shadedcelllight)& &*(shadedcelllight) & &*(shadedcelllight)\\
+~&*(shadedcelllight)& \\
+~&*(shadedcelllight)\\
+\end{ytableau}}}%
+$\rightarrow{}$ 
+\subfloat{{
+\begin{ytableau} 
+~ & & \\
+*(shadedcelllight)&*(shadedcelllight)&*(shadedcelllight)\\
+& \\
+*(shadedcelllight)\\
+\\
+*(shadedcelllight)\\
+\end{ytableau}}}
+% \textcolor{red}{$\xmapsto{\hspace{35mm} \sigma \hspace{35mm}}$}
+\label{squish_flip_figure}
+\end{figure}
+\vspace{-1cm}
+\begin{center}
+\begin{tikzpicture}
+\draw[|->] (-2,0.5) .. controls (-1.5,0) and (1,0) .. (3,1) node[midway, above]{$\sigma$};
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}{Further Bijections}
+    % Schneider-Schneider also discussed "frequency congruent" partitions, which are simply the conjugates of sequentially congruent ones. Denoted $\p$, this is the set of partitions where the $i$th term occurs a multiple of $i$ times. This can be generalized to $\p_B(A)$, for any set $B \subseteq \N$ and sequence of integers $A$. This is the set of partitions such that the parts are elements of $B$, and the term $b_i$ occurs a multiple of $a_i$ times. We call the conjugates of these $\s_{B}(A)$, and now our $i$th "prime" is $n_i(\underbrace{a_i, \dots, a_i}_{b_i \text{ times}})$. 
+    \begin{itemize}
+        \item Frequency congruent partitions, $\mathcal{F}$ \\
+        \pause
+        \item Generalized frequency congruent partitions, $\mathcal{F}_B(A)$ \\
+        \pause
+        \begin{itemize}
+            \item The parts are elements of $B$, and the $i$th part occurs a multiple of $a_i$ times.
+        \end{itemize}
+        \pause
+        \item Generalized \SCP s, $\s_B(A)$
+        \pause
+        \item $i$th "prime" is $n_i(\underbrace{a_i, \dots, a_i}_{b_i \text{ times}})$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{General Young Diagrams}
+The Young diagram of a partition $[n_1, \dots, n_r] \in \s_B(A)$ looks like
+\begin{center}
+    \resizebox{10cm}{2cm}{
+        \begin{tikzpicture} [scale = 0.3]
+        %SECTION 1
+        \draw [draw=black] (14,0) rectangle (18,-3);
+        
+        \draw [draw=black] (22,0) rectangle (26,-3);
+        
+        \draw [
+        thick,
+        decoration={
+            brace,
+            mirror,
+            raise = 0.1cm,
+        },
+        decorate
+        ] (22,0) -- (22,-3)
+        node [midway, anchor=east, xshift = -1mm] {$b_1$};
+        \draw [
+        thick,
+        decoration={
+            brace,
+            mirror,
+            raise = 0.1cm,
+        },
+        decorate
+        ] (22,-3) -- (26,-3)
+        node [midway, anchor=north, yshift = -1mm] {$a_1$};
+        \node (dots) at (19, -1.5) {$\cdots$};
+        \draw [
+        thick,
+        decoration={
+            brace,
+            mirror,
+            raise = 0.1cm,
+        },
+        decorate
+        ] (14,-4.3) -- (26,-4.3)
+        node [midway, anchor=north, yshift = -1mm] {$n_1$};
+        
+        %SECTION 2
+        \draw [draw=black] (0,0) rectangle (5,-4);
+        
+        \draw [draw=black] (9,0) rectangle (14,-4);
+        
+        \draw [
+        thick,
+        decoration={
+            brace,
+            mirror,
+            raise = 0.1cm,
+        },
+        decorate
+        ] (9,0) -- (9,-4)
+        node [midway, anchor=east, xshift = -1mm] {$b_2$};
+        \draw [
+        thick,
+        decoration={
+            brace,
+            mirror,
+            raise = 0.1cm,
+        },
+        decorate
+        ] (9,-4) -- (14,-4)
+        node [midway, anchor=north, yshift = -1mm] {$a_2$};
+        \node (dots) at (6, -2) {$\cdots$};
+        \draw [
+        thick,
+        decoration={
+            brace,
+            mirror,
+            raise = 0.1cm,
+        },
+        decorate
+        ] (0,-5.3) -- (14,-5.3)
+        node [midway, anchor=north, yshift = -1mm] {$n_2$};
+        
+        \node (dots) at (-2, -0) {$\cdots$};
+        % \node (dots) at (-2, -5) {$\cdots$};
+        
+        %SECTION r
+        \draw [draw=black] (-13,0) rectangle (-4,-7);
+        
+        \draw [draw=black] (-26,0) rectangle (-17,-7);
+        
+        \draw [
+        thick,
+        decoration={
+            brace,
+            mirror,
+            raise = 0.1cm,
+        },
+        decorate
+        ] (-13,0) -- (-13,-7)
+        node [midway, anchor=east, xshift = -1mm] {$b_r$};
+        \draw [
+        thick,
+        decoration={
+            brace,
+            mirror,
+            raise = 0.1cm,
+        },
+        decorate
+        ] (-13,-7) -- (-4,-7)
+        node [midway, anchor=north, yshift = -1mm] {$a_r$};
+        \node (dots) at (-16, -3.5) {$\cdots$};
+        \draw [
+        thick,
+        decoration={
+            brace,
+            mirror,
+            raise = 0.1cm,
+        },
+        decorate
+        ] (-26,-8.3) -- (-4,-8.3)
+        node [midway, anchor=north, yshift = -1mm] {$n_r$};
+        \end{tikzpicture}
+    }
+\end{center}
+\end{frame}
+
+\begin{frame}{Further Bijections}
+    The generating function for $\s_{B}(A)$ is $$\sum_{n = 1}^{\infty}p(\s_B(A), n)q^n =  \prod_{n = 1}^{\infty} \frac{1}{1-q^{a_nb_n}}.$$
+    \pause
+    So, if all $a_ib_i$ are distinct, $\s_{B}(A)$ is in bijection with the set of partitions whose parts are elements of $H = \{ a_ib_i | i \in \N \}$.
+\end{frame}
+
+\section{Partition Ideals}
+\begin{frame}{What is a Partition Ideal?}
+A \textit{partition ideal} is a subset $\mathscr{I}$ of $\p$ that has the property that, if $\lambda\in \mathscr{I}$, and one or more parts are removed from $\lambda$ to form $\lambda'$, then $\lambda'$ is still in $\mathscr{I}$.
+
+\vspace{3mm}
+\begin{example}
+The set of partitions with even parts is a partition ideal.
+\end{example}
+
+\end{frame}
+
+
+\begin{frame}{Notation}
+We represent a partition $\lambda$ as $\{f_i\}=\{f_1, f_2, \dots\}$ where $f_i$ is the number of times $i$ occurs in the partition $\lambda$. 
+
+\vspace{3mm}
+\begin{example}
+For the partition (3, 3, 1), we have $\{f_i\}=\{1,0,2,0,0,\dots\}$. 
+\end{example}
+
+\end{frame}
+
+\begin{frame}{Partition Ideal of Sequentially Congruent Partitions}
+Sequentially congruent partitions aren't an ideal themselves --- consider (5,3,3).
+
+\pause
+\vspace{3mm}
+
+\begin{prop}
+    The maximal partition ideal composed of sequentially congruent partitions is given by $\s(A)$ where $A=\{1,2,6,\dots,\lcm(1,\dots,i),\dots\}$.
+\end{prop}
+\pause
+
+Partitions in $\s(A)$ can be written as \[n_1(1)\star n_2(2,2)\star \dots \star n_i \underbrace{(\lcm(1,\dots,i),\dots,\lcm(1,\dots,i))}_{i \text{ times}}\star\cdots\] for $n_i\geq 0$ and only finitely many $n_i$ nonzero.
+
+\end{frame}
+
+
+\begin{frame}{Order}
+
+\begin{definition}
+We say a partition ideal $\mathscr{I}$ has \emph{order} $k$ if $k$ is the least positive integer such that for all $\{f_i\}\notin\mathscr{I}$, there exists $m$ such that $\{f_i'\} \notin\mathscr{I}$ where 
+$$f_i ' = 
+\begin{dcases}
+      f_i & \text{\emph{for} }i=m,m+1,\dots,m+k-1, \\
+      0   & \text{\emph{otherwise}}
+\end{dcases}$$
+\end{definition}
+
+\pause
+
+\begin{example}
+Consider the partition ideal of the set of partitions whose parts are even. This ideal has order 1, because for any partition not in the ideal, that partition must include at least one odd part. 
+\end{example}
+\end{frame}
+
+
+\begin{frame}{Partition Ideals of Infinite Order}
+$\s(A)$ is a partition ideal of infinite order, since for any arbitrarily large finite $k$, $(k+1,1)\not \in \s(A)$ but $(k+1)\in \s(A)$ and $(1)\in \s(A)$. 
+
+\pause
+\vspace{3mm}
+
+\begin{example}
+An example of another infinite order partition ideal is the set of partitions where every part within a partition must have the same parity.
+\end{example}
+\end{frame}
+
+\begin{frame}{Modulus}
+For a partition ideal $\mathscr{I}$, we define $\mathscr{I}^{(m)}$ to be the set of partitions $\{f_i\}$ in $\mathscr{I}$ where $f_1=f_2=\dots=f_m=0$. 
+
+\pause
+\vspace{3mm}
+
+We also have the bijection $\phi^{m}$ defined as $\phi^{m}((\lambda_1,\lambda_2,\dots,\lambda_r))=(\lambda_1+m,\lambda_2+m,\dots,\lambda_r+m)$.
+
+\pause
+\vspace{3mm}
+    
+\begin{definition}
+A partition ideal $\mathscr{I}$ has modulus $m$ if $\mathscr{I}^{(m)}=\phi^{m}$.
+\end{definition}    
+
+\pause
+\vspace{3mm}
+
+If $\mathscr{I}$ has modulus $m$, any multiple of $m$ is also a modulus of $\mathscr{I}$.
+        
+\end{frame}
+
+\begin{frame}{Modulus Example}
+\begin{definition}
+A partition ideal $\mathscr{I}$ has modulus $m$ if $\mathscr{I}^{(m)}=\phi^{m}\mathscr{I}$.
+\end{definition}  
+
+\begin{example}
+Let $\mathscr{R}$ denote the set of partitions whose parts differ by at least two. Note $\mathscr{R}$ is an ideal with modulus 1, since the difference in adjacent parts remains unchanged under $\phi$.
+\end{example}
+
+\end{frame}    
+
+
+\begin{frame}{More Partition Ideal Definitions}
+    
+\begin{definition}
+For each partition ideal $\mathscr{I}$ with modulus $m$, we define
+$$L_\mathscr{I}:=\{\{f_i\}\in\mathscr{I}\mid f_i=0 \text{ for }i>m\}.$$
+\end{definition}
+
+\pause
+\vspace{3mm}
+
+For two partitions $\{f_i\},\{g_i\}\in\mathscr{I}$, we define $\{f_i\}\oplus\{g_i\}=\{f_i+g_i\}$.
+    
+\vspace{3mm}
+
+\begin{example}
+    Let $\{f_i\}=\{1,0,2,3,0,\dots\}=(4,4,4,3,3,1)$ and $\{g_i\}=\{1,1,1,1,0,\dots\}=(4,3,2,1)$. Then
+    $$\{f_i\}\oplus\{g_i\}=\{2,1,3,4,0,\dots\}=(4,4,4,4,3,3,3,2,1,1).$$
+\end{example}
+    
+\end{frame}
+
+\begin{frame}{Andrews Representation}
+
+\begin{lemma}
+Let $\mathscr{I}$ be a partition ideal with modulus $m$. For each $\lambda\in\mathscr{I}$, we uniquely have
+$$\lambda= \pi_1\oplus(\phi^m\pi_2)\oplus(\phi^{2m}\pi_3)\oplus\dots$$
+where $\pi_i\in L_\mathscr{I}$.
+\end{lemma}
+    
+\end{frame}
+
+\begin{frame}{$m$-Tail}
+    
+\begin{definition}
+For any partition $\lambda\in\p$, its \emph{$m$-tail} $\tail_m(\lambda)$ is defined to be the collection of parts of $\lambda$ which are at most $m$. For example,
+$$\tail_2(3,3,2,1,1,1)=(2,1,1,1).$$
+\end{definition}
+    
+\end{frame}
+
+\begin{frame}{Linked Partition Ideals}
+
+\begin{definition}
+We say $\mathscr{I}$ is a \emph{linked partition ideal} if 
+\begin{enumerate}
+    \item[(i)] $\mathscr{I}$ has a modulus, $m$;
+    \item[(ii)] the $L_\mathscr{I}$ corresponding to $m$ is finite;
+    \item[(iii)] for each $\pi\in L_\mathscr{I}$ there corresponds a minimal subset $\mathscr{L}_\mathscr{I}(\pi) \subseteq L_\mathscr{I}$, which is called the \emph{linking set of} $\pi$, and a positive integer associated with $\pi$, $l(\pi)$, which we call the \emph{span of }$\pi$, such that for any $\lambda\in\p$, $\lambda\in\mathscr{I}$ with $\tail_m(\lambda)=\pi$ if and only if we can find a partition $\tilde{\pi}$ with $\tail_m(\tilde{\pi})\in\mathscr{L}_\mathscr{I}(\pi)$ such that
+    $$\lambda=\pi\oplus(\phi^{l(\pi)m}\tilde{\pi}).$$
+\end{enumerate}
+\end{definition}
+    
+\end{frame}
+
+\begin{frame}{Linked Partition Ideals}
+
+\begin{example}
+Consider the set of partitions whose adjacent parts differ by at least two, denoted $\mathscr{R}$. Note that $\mathscr{R}$ is a partition ideal with modulus 1 and that $L_\mathscr{R}=\{\pi_0, (1)\}.$ Then we have
+\begin{align*}
+    \mathscr{L}_\mathscr{R}(\pi_0)&=L_\mathscr{R}, \;\;\;\;&l(\pi_0)=1,\\
+    \mathscr{L}_\mathscr{R}((1))&=L_\mathscr{R}, \;\;\;\;  &l((1))=2.
+\end{align*}
+\end{example}
+    
+\end{frame}
+
+\begin{frame}{Question}
+    Are there any infinite order partition ideals that are linked?
+\end{frame}
+
+\begin{frame}{Answer}
+
+\begin{theorem}
+Linked partition ideals have finite order.
+\end{theorem}
+
+\begin{proofs}[\proofname\ (Sketch)]
+Let $\mathscr{I}$ be a linked partition ideal with modulus $m$ and consider a partition $\{f_i\}\notin\mathscr{I}$. Look at $\tail_m(\{f_i\})$.
+\begin{itemize}
+    \item If $\tail_m(\{f_i\})\notin L_\mathscr{I}$, then $\{f_i'\}=\tail_m(\{f_i\})$ and we are done.
+    \item If $\tail_m(\{f_i\})\in L_\mathscr{I}$, then we have a representation of the form $\{f_i\}= \pi_1\oplus \phi^m \pi_2 \oplus \cdots \oplus \phi^{m(b-1)}\pi_b$
+    \begin{itemize}
+        \item Note $\tail_m(\pi_b)\neq \pi_0$
+    \end{itemize}
+\end{itemize}
+\end{proofs}
+\end{frame}
+
+\begin{frame}{Answer}
+\vspace{-2mm}
+\begin{proof}[\proofname\ (Sketch) (Cont.).]
+    \begin{itemize}
+        \item If $\tail_m(\pi_b)\notin L_\mathscr{I}$, then let $$\text{\hspace{-6mm}}\{f_i'\} =\pi_0\oplus \phi^m\pi_0\oplus\cdots\oplus\phi^{m(b-2)}\pi_0\oplus\phi^{m(b-1)}\tail_m\pi_b\oplus\phi^{mb}\pi_0\oplus\cdots$$
+        \item Otherwise we choose
+        \begin{align*}
+        \{f_i'\} =\pi_0\oplus\cdots&\oplus\phi^{m(a-2)}\pi_0\oplus\phi^{m(a-1)}\pi_a\\
+        &\oplus\underbrace{\phi^{ma}\pi_0\oplus\cdots\oplus\phi^{m(b-2)}\pi_0}_{\leq l(\pi_a)-1\text{ times}}\\
+        &\oplus\phi^{m(b-1)}\tail_m\pi_b\oplus\phi^{mb}\pi_0\oplus\cdots \notin C    
+        \end{align*}
+    \end{itemize}
+    \vspace{-1.5mm}
+Thus $C$ has order at most $(\max\{l(\pi_i):\pi_i\in L_C\}+1)m$.
+\end{proof}
+    
+\end{frame}
+
+
+\section{Conclusion}
+\begin{frame}{Further Questions}
+    \begin{itemize}
+        \item Classification of infinite order partition ideals
+        
+        \item Extend known theorems
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\begin{center}
+      \huge Thank you for your attention. 
+       
+      Are there any questions? 
+\end{center}
 \end{frame}
 
 \end{document}
