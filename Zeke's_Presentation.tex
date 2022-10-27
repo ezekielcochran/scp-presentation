@@ -61,6 +61,325 @@
 
 
 
+\section{Introduction}
+\begin{frame}{What is a Partition?}
+    A \emph{partition} $\lambda$ of a positive integer $n$ is a sequence $\lambda=(\lambda_1, \lambda_2, \dots, \lambda_r)$ of positive integers where $\lambda_1\geq \lambda_2\geq\dots\geq\lambda_r$ and $\lambda_1+\lambda_2+\dots+\lambda_r=n$.
 
+    \vspace{3mm}\pause
+    
+    There are seven partitions of 5:
+    \[(5)\;\;\;\;\;\;\;\;\;\;(4,1)\;\;\;\;\;\;\;\;(3,2)\;\;\;\;\;\;\;\;\;(3,1,1)\]
+    \[(2,2,1)\;\;\;\;\;\;(2,1,1,1)\;\;\;\;\;\;(1,1,1,1,1)\]
+
+\pause
+\vspace{3mm} 
+
+We use $\ell(\lambda)$ to denote the length of $\lambda$, and $|\lambda|$ to denote the size of $\lambda$.
+\end{frame}
+
+\begin{frame}{Frequency Notation}
+Sometimes, we represent a partition $\lambda$ as $\lambda = \langle 1^{f_1}, 2^{f_2}, \dots \rangle$, where $f_i$ is the number of times part $i$ occurs in the partition. For example, \[(7,6,3,3,1)=\langle 1^1, 3^2, 6^1, 7^1 \rangle.\] 
+\end{frame}
+
+\begin{frame}{Young Diagrams}
+
+\begin{itemize}
+    \item graphical representation of a partition $\lambda$
+    \pause
+    \item $i$th row has $\lambda_i$ nodes or boxes
+    \onslide<4,5>{
+    \item conjugate: rows become columns and vice versa }
+\end{itemize}
+
+    \vspace{1mm}
+
+    \onslide<3,4,5>{    Young diagram for $(7, 5, 5, 4, 1)$}\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \onslide<5>{and its conjugate}
+    \vspace{1mm}
+    \begin{columns}
+    \column{0.5\textwidth}
+        \centering
+        \onslide<3,4,5>{ \begin{Young}
+    & & & & & & \cr
+& & & & \cr
+& & & & \cr
+& & & \cr
+\cr
+\end{Young}}
+    \column{0.5\textwidth}
+        \centering
+        \onslide<5>{ \begin{Young}
+    & & & &  \cr
+& & &  \cr
+& & &  \cr
+& & & \cr
+& & \cr
+\cr
+\cr
+\end{Young}}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}{Sequentially Congruent Partitions}
+    A partition $\lambda=(\lambda_1,\lambda_2,...,\lambda_r)$ is \emph{sequentially congruent} if \begin{enumerate}
+    \item $\lambda_i \equiv  \lambda_{i + 1} \mod i$ for all $1 \leq i < r$
+    \item $\lambda_r \equiv 0 \mod r$
+\end{enumerate}
+    \pause
+    \begin{example}
+    $(21, 14, 14, 8)$ is sequentially congruent since 
+    \begin{align*}
+        &4\mid8\\
+        &3\mid (14-8)\\
+        &2\mid (14-14)\\
+        \shortintertext{and}&1\mid (21-14) 
+    \end{align*}
+    \end{example}
+    
+\end{frame}
+
+\begin{frame}{Previous Work}
+
+
+    \begin{itemize}
+        \item Defined in 2019 by Schneider and Schneider
+        
+        \begin{itemize}
+            \item  $\p_n$ is the set of partitions of $n$
+            \item  $\s_{\text{lg}=n}$ is the set of sequentially congruent partitions with largest part $n$
+            \item Two distinct bijections found between $\p_n$ and $\s_{\text{lg}=n}$
+        \end{itemize}
+    \end{itemize}
+    
+        
+        \vspace{3mm}\pause
+        
+    $$\sum_{n = 1}^{\infty} p(n)q^n = \prod_{n = 1}^{\infty} \frac{1}{1-q^n}.$$
+    
+    
+\end{frame}
+
+\begin{frame}{Previous Work}
+\begin{itemize}
+        \item In 2020, Schneider, Sellers, and Wagner showed that sequentially congruent partitions of size $n$ are in bijection with partitions whose parts are squares of size $n$ so that 
+        \vspace{3mm}
+        \pause
+        \ $$\sum_{n = 1}^{\infty} p(\s, n)q^n=\sum_{n = 1}^{\infty} p_{\square}(n)q^n = \prod_{n = 1}^{\infty} \frac{1}{1-q^{n^2}}.$$
+        where $p_\square(n)$ denotes the number of partitions whose parts are perfect squares.
+        \end{itemize}
+        
+\end{frame}
+
+\begin{frame}{Schneider--Schneider Bijections: $\pi$}
+The map $\pi: \p_n\to\s_{\text{lg}=n}$ is defined by $\pi((\lambda_1, \lambda_2, \dots,\lambda_r))=(\lambda_1', \lambda_2', \dots,\lambda_r')$, where $$\lambda_i'=i\lambda_i+\sum_{j=i+1}^r\lambda_j.$$
+
+\pause
+
+\begin{example}
+\begin{align*}
+    \pi((6,3,3,2)) &= (1(6)+3+3+2, 2(3)+3+2, 3(3)+2, 4(2))\\
+    &= (14, 11, 11, 8).
+\end{align*}
+
+\end{example}
+\end{frame}
+
+\begin{frame}{Schneider--Schneider Bijections: $\sigma$}
+The map $\sigma:\s_{\text{lg}=n}\to\p_n$ is defined by  
+\begin{align*}
+\sigma &((\phi_1, \phi_2, \dots,\phi_r)) = \\
+&\left\langle1^{\phi_1-\phi_2}, 2^{\nicefrac{(\phi_2-\phi_3)}{2}},3^{\nicefrac{(\phi_3-\phi_4)}{3}}, \dots, (r-1)^{\nicefrac{(\phi_{r-1}-\phi_r)}{(r-1)}}, r^{\nicefrac{\phi_r}{r}}\right\rangle
+\end{align*}
+
+
+\pause
+\begin{example}\begin{align*}
+    \sigma((13,13,11,8))&=\left<1^0,2^1,3^1,4^2\right>\\
+    &=(4,4,3,2).
+\end{align*} \end{example}
+\end{frame}
+
+
+\begin{frame}{Schneider--Schneider Bijections}
+\begin{itemize}
+    \item $\sigma\circ\pi$ is equivalent to conjugation
+\end{itemize} 
+\vspace{1mm}
+\pause
+\begin{corollary}
+The conjugate of $\lambda=(\lambda_1,\lambda_2, \dots, \lambda_r)$ is given by $\left<1^{\lambda_1-\lambda_2}, 2^{\lambda_2-\lambda_3}, \dots,(r-1)^{\lambda_{r-1}-\lambda_r}, r^{\lambda_r}\right>$.
+\end{corollary}
+\pause
+\vspace{2mm}
+\begin{itemize}
+    \item $\pi\circ\sigma$ is equivalent to an analogue to conjugation specific to sequentially congruent partitions
+\end{itemize}
+\end{frame}
+
+\section{C-notation}
+
+% \begin{frame}{Defining the Operation $\star$}
+%     For two partitions, $\lambda, \gamma$, we define $\lambda\star\gamma$ to be the partition given by $(\lambda\star\gamma)_i=\lambda_i+\gamma_i$ where if $i>\ell(\lambda)$ we define $\lambda_i=0$.\\
+    
+%     \vspace{3mm}
+    
+%     We also define $c\lambda=\underbrace{\lambda\star\lambda\star\dots\star\lambda}_\text{$c$ times}$. For example, $3(5,4,2)=(5,4,2)\star(5,4,2)\star(5,4,2)=(3\cdot5,3\cdot4,3\cdot2)=(15,12,6)$.
+    
+%     \vspace{3mm}
+    
+%     Note that $(\s, \star)$ defines a commutative monoid (with the cancellative property) since if $\lambda \text{ and } \gamma$ are sequentially congruent partitions then $\lambda_k-\lambda_{k+1}=kn,  \gamma_k-\gamma_{k+1}=km$ with $m, n\in \mathbb{Z}_{\geq 0}$ so that $k\mid[(\lambda\star\gamma)_i-(\lambda\star\gamma)_{i+1}]$.
+% \end{frame}
+
+\begin{frame}{The "Primes"}
+    Given any \SCP, you can add any $n \in \N$ to the first $n$ terms, to get another \SCP. \\
+    \pause
+    In fact, any \SCP\ can be "built" this way:
+    \begin{align*}
+        &c_1(1) \star \\
+        &c_2(2, 2) \star \\
+        &c_3(3, 3, 3) \star \\
+        &\vdots \\
+        &c_r(\underbrace{r, \dots, r}_{r \text{ times}})
+    \end{align*}
+    Where $c_i \in \N \cup \{ 0 \}$ for all $i$, finitely many nonzero \\
+    The $\star$ operation represents left-justified partwise addition 
+\end{frame}
+
+\begin{frame}{C-Notation} %This is the frame that VSCode does not like
+    \begin{theorem} A partition is sequentially congruent if and only if it can be written as \[\lambda = c_1(1) \star c_2(2,2) \star c_3(3,3,3) \star \dots \star c_r (r, \dots,r) \] where $c_1$ through $c_r$ are non-negative integers.
+    \end{theorem}
+    \pause
+    Notation: We write this $\lambda$ as $[c_1, \cdots, c_r]$ \\
+    \vspace{10mm}
+    \pause
+    Our largest part is $\sum_{i = 1}^{r} i c_i$, and the size is $\sum_{i = 1}^r i^2 c_i$.
+\end{frame}
+
+\begin{frame}{C-Notation and Young Diagrams}
+
+\ytableausetup{boxsize = 1em, centertableaux}
+\begin{ytableau}
+\none[\cdots] & & & & & & & \none[\cdots] & & & & & &\none[\cdots] & & & & & \none[\cdots] & & & & \none[\cdots] & & & \none[\cdots] & \\
+\none & & & & & & & \none & & & & & & \none & & & & & \none & & & & \none & & & \none\\
+\none & & & & & & & \none & & & & & & \none & & & & & \none & & & & \none\\
+\none & & & & & & & \none & & & & & & \none & & & & & \none\\
+\none & & & & & & & \none & & & & & & \none \\
+\none & & & & & &
+\end{ytableau}
+
+\begin{itemize}
+    \item The $i\times i$ square occurs $c_i$ times.
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Bijection with Partitions into Squares}
+
+\only<1>{For example, consider the partition $(16, 13, 11, 5, 5)$.}
+\only<2>{For example, consider the partition $(16, 13, 11, 5, 5) =[3,1,2,0,1]$.}
+\only<3>{The sequentially congruent partition $[3,1,2,0,1]$ is in bijection with the partition into squares $\langle (1^2)^3, (2^2)^1, (3^2)^2, (5^2)^1 \rangle $.}
+
+\vspace{2mm}
+
+% \ytableausetup
+% {mathmode, boxsize=1em, centertableaux}
+% \begin{ytableau}
+%  *(white)  & & & & & \uncover<2,3>{\blacksquare} & \uncover<2,3>{\blacksquare} & \uncover<2,3>{\blacksquare}& & & & \uncover<2,3>{\blacksquare} & \uncover<2,3>{\blacksquare} & & \uncover<2,3>{\blacksquare}& \\
+%  *(white)  & & & & & \uncover<2,3>{\blacksquare} & \uncover<2,3>{\blacksquare} & \uncover<2,3>{\blacksquare}& & & & \uncover<2,3>{\blacksquare} & \uncover<2,3>{\blacksquare}\\
+%  *(white)  & & & & & \uncover<2,3>{\blacksquare} & \uncover<2,3>{\blacksquare} & \uncover<2,3>{\blacksquare}& & & \\
+%  & & & & \\
+%  & & & &
+% \end{ytableau}
+
+\only<1>{
+
+\ytableausetup
+{mathmode, boxsize=1em, centertableaux}
+\begin{ytableau}
+    *(white)  & & & & &  &  & & & & &  &  & & & \\
+    *(white)  & & & & &  &  & & & & &  & \\
+    *(white)  & & & & &  &  & & & & \\
+    & & & & \\
+    & & & &
+\end{ytableau}
+}
+
+\uncover<2, 3>{
+
+\ytableausetup
+{mathmode, boxsize=1em, centertableaux}
+\begin{ytableau}
+    *(shadedcelllight)  & *(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell) & *(shadedcell)&*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell) &*(shadedcelllight) & *(shadedcell)&*(shadedcelllight) \\
+    *(shadedcelllight)  &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell) & *(shadedcell)&*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell)\\
+    *(shadedcelllight)  &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) & *(shadedcell) & *(shadedcell) & *(shadedcell)&*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) \\
+    *(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) \\
+    *(shadedcelllight) &*(shadedcelllight) & *(shadedcelllight)&*(shadedcelllight) &*(shadedcelllight)
+\end{ytableau}
+
+}
+
+\uncover<3>{
+
+\vspace{2mm}
+
+\ytableausetup
+{mathmode, boxsize=1em, centertableaux}
+\begin{ytableau} 
+*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight)\\
+*(shadedcell) &*(shadedcell) &*(shadedcell) & *(shadedcell)& *(shadedcell)& *(shadedcell)& *(shadedcell)&*(shadedcell) & *(shadedcell)\\
+*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) &*(shadedcelllight) \\
+*(shadedcell) & *(shadedcell) &*(shadedcell) &*(shadedcell)\\
+*(shadedcelllight)\\
+*(shadedcell)\\ 
+*(shadedcelllight)\\
+\end{ytableau}}
+
+\end{frame}
+
+\section{Partition Bijections}
+
+\begin{frame}{Bijection with Partitions into Squares}
+    Once we are able to think about \SCP s in their c-notation, the bijection into squares is immediately apparent.
+    
+    % \pause
+    \vspace{3mm}
+    
+    Call this bijection $\psi$, so that $$\psi \left( [c_1,c_2,\dots,c_r] \right) = \left< \left( 1^2 \right)^{c_1}, \left( 2^2 \right)^{c_2},\dots, \left( r^2 \right)^{c_r} \right>.$$
+    
+    \pause
+    \vspace{3mm}
+    This bijection is also easily visible from the Young diagrams. \\
+    Thus the generating function for sequentially congruent partitions is $$\sum_{n = 1}^{\infty} p(\s,n)q^n = \prod_{n = 1}^{\infty} \frac{1}{1-q^{n^2}}.$$
+\end{frame}
+
+% Added this whitespace to keep line numbers consistant (There was commented code here)
+
+
+
+
+
+
+
+
+
+
+\begin{frame}{$\pi$ and $\sigma$}
+    % While most partition bijections map size to size, some are maps between other characteristics. In their 2019 paper, Schneider--Schneider defined two partition bijections between the set of sequentially congruent partitions with largest part $n$, $\s_{lg=n}$, and the set of partitions of size $n$, $\p_n$. 
+    
+    \begin{itemize}
+        \item Most bijections map size to size \\
+        \pause
+        \item The set of \SCP s with largest part $n$, $\s_{lg = n}$ \\
+        \pause
+        \item The set of partitions of size $n$, $\p_n$ \\
+        \pause
+        \item Schneider-Schneider found two bijections between $\s_{lg = n}$ and $\p_n$\\
+        \item Much simpler to write in c-notation
+    \end{itemize}
+    
+    \vspace{3mm}
+    
+    % While these bijections, $\pi$ and $\sigma$, were somewhat complicated, using c-notation, we are able to describe the same bijections in a much simpler way. 
+\end{frame}
 
 \end{document}
